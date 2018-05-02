@@ -1,32 +1,19 @@
 import React, { Component } from 'react'
 import {
-  Root,
-  Header,
-  Body,
-  Title,
-  Left,
-  Right,
-  Container,
-  Content,
-  Text
+  Root
 } from 'native-base'
+import { StackNavigator } from 'react-navigation'
+import TestScreen from './screens/TestScreen'
+
+const AppNavigator = StackNavigator({
+  TestScreen: { screen: TestScreen }
+}, { TestScreen, mode: 'card' })
 
 export default class App extends Component {
   render() {
     return (
       <Root>
-        <Container>
-          <Header>
-            <Left />
-            <Body>
-              <Title>Header</Title>
-            </Body>
-            <Right />
-          </Header>
-          <Content padder>
-            <Text>React Native Steem Starter</Text>
-          </Content>
-        </Container>
+        <AppNavigator />
       </Root>
     )
   }
