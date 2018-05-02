@@ -11,14 +11,14 @@ import {
   Title,
 } from 'native-base'
 
-export default class TestScreen extends Component {
+export default class ReduxScreen extends Component {
   static navigationOptions = ({ navigation, screenProps }) => {
     return {
       header: (
         <Header>
           <Left />
           <Body>
-            <Title>Test Screen</Title>
+            <Title>Redux Screen</Title>
           </Body>
           <Right />
         </Header>
@@ -27,19 +27,20 @@ export default class TestScreen extends Component {
   }
 
   handlePress = () => {
-    this.props.navigation.navigate('ReduxScreen')
+    this.props.navigation.goBack()
   }
 
   render () {
     return (
       <Container>
         <Content padder>
-          <Text>React Native Steem Starter</Text>
+          <Text>Redux example to be added</Text>
           <Button full onPress={this.handlePress}>
-            <Text>Redux Example</Text>
+            <Text>Back</Text>
           </Button>
         </Content>
       </Container>
     )
   }
 }
+
