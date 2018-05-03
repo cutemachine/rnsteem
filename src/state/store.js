@@ -6,7 +6,7 @@ import {
 import ReduxThunk from 'redux-thunk'
 import rootReducer from './rootReducer'
 
-export default function configureStore (initialState) {
+export default function configureStore(initialState) {
   const store = createStore(
     rootReducer,
     initialState,
@@ -18,7 +18,7 @@ export default function configureStore (initialState) {
 
   if (module.hot) {
     module.hot.accept(() => {
-      const nextRootReducer = require('./rootReducer').default
+      const nextRootReducer = require('./rootReducer').default  // eslint-disable-line
       store.replaceReducer(nextRootReducer)
     })
   }

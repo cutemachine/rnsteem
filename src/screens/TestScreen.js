@@ -12,25 +12,23 @@ import {
 } from 'native-base'
 
 export default class TestScreen extends Component {
-  static navigationOptions = ({ navigation, screenProps }) => {
-    return {
-      header: (
-        <Header>
-          <Left />
-          <Body>
-            <Title>Test Screen</Title>
-          </Body>
-          <Right />
-        </Header>
-      )
-    }
-  }
+  static navigationOptions = () => ({
+    header: (
+      <Header>
+        <Left />
+        <Body>
+          <Title>Test Screen</Title>
+        </Body>
+        <Right />
+      </Header>
+    )
+  })
 
   handlePress = () => {
     this.props.navigation.navigate('ReduxScreen')
   }
 
-  render () {
+  render() {
     return (
       <Container>
         <Content padder>

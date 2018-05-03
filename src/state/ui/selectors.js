@@ -1,3 +1,3 @@
 export default {
-  selectUIColor: (state) => state.color
+  selectUIColor: state => state.color
 }

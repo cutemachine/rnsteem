@@ -16,19 +16,17 @@ import { selectors } from '../state/rootReducer'
 import { uiOperations } from '../state/ui'
 
 class ReduxScreen extends Component {
-  static navigationOptions = ({ navigation, screenProps }) => {
-    return {
-      header: (
-        <Header>
-          <Left />
-          <Body>
-            <Title>Redux Screen</Title>
-          </Body>
-          <Right />
-        </Header>
-      )
-    }
-  }
+  static navigationOptions = () => ({
+    header: (
+      <Header>
+        <Left />
+        <Body>
+          <Title>Redux Screen</Title>
+        </Body>
+        <Right />
+      </Header>
+    )
+  })
 
   handlePress = () => {
     this.props.navigation.goBack()
@@ -38,11 +36,11 @@ class ReduxScreen extends Component {
     this.props.setColorUI(sample(['aqua', 'teal', 'purple', 'maroon', 'fuchsia']))
   }
 
-  render () {
+  render() {
     return (
       <Container>
-        <Content padder style={{backgroundColor: this.props.color}}>
-          <Button full onPress={this.handlePressColor} style={{marginBottom: 15}}>
+        <Content padder style={{ backgroundColor: this.props.color }}>
+          <Button full onPress={this.handlePressColor} style={{ marginBottom: 15 }}>
             <Text>Set Random Color</Text>
           </Button>
           <Button full onPress={this.handlePress}>

@@ -9,5 +9,5 @@ export default rootReducer
 
 export const selectors = {
   // UI state
-  selectUIColor: (state) => uiSelectors.selectUIColor(state.ui)
+  selectUIColor: state => uiSelectors.selectUIColor(state.ui)
 }

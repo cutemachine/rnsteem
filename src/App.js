@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import {
-  Root
-} from 'native-base'
+import { Root } from 'native-base'
 import { StackNavigator } from 'react-navigation'
 import { Provider } from 'react-redux'
 import configureStore from './state/store'
