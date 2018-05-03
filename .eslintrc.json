@@ -1,0 +1,36 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true
+    },
+    "rules": {
+      "semi": ["error", "never"],
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "strict": 0,
+      "react/no-multi-comp": 0,
+      "comma-dangle": ["error", {
+        "arrays": "ignore",
+        "objects": "ignore",
+        "imports": "ignore",
+        "exports": "ignore",
+        "functions": "ignore"
+      }],
+      "jsx-a11y/anchor-is-valid": 0,
+      "react/prefer-stateless-function": 0,
+      "react/prop-types": 0
+    },
+    "globals": {
+      "React": true,
+      "afterEach": true,
+      "beforeEach": true,
+      "fetch": true,
+      "jest": true,
+      "mount": true,
+      "renderer": true,
+      "sessionStorage": true,
+      "shallow": true
+    },
+    "parser": "babel-eslint",
+    "extends": "airbnb"
+}
