@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {
   Body,
   Button,
@@ -10,8 +11,11 @@ import {
   Text,
   Title,
 } from 'native-base'
+import sample from 'lodash.sample'
+import { selectors } from '../state/rootReducer'
+import { uiOperations } from '../state/ui'
 
-export default class ReduxScreen extends Component {
+class ReduxScreen extends Component {
   static navigationOptions = ({ navigation, screenProps }) => {
     return {
       header: (
@@ -30,11 +34,17 @@ export default class ReduxScreen extends Component {
     this.props.navigation.goBack()
   }
 
+  handlePressColor = () => {
+    this.props.setColorUI(sample(['aqua', 'teal', 'purple', 'maroon', 'fuchsia']))
+  }
+
   render () {
     return (
       <Container>
-        <Content padder>
-          <Text>Redux example to be added</Text>
+        <Content padder style={{backgroundColor: this.props.color}}>
+          <Button full onPress={this.handlePressColor} style={{marginBottom: 15}}>
+            <Text>Set Random Color</Text>
+          </Button>
           <Button full onPress={this.handlePress}>
             <Text>Back</Text>
           </Button>
@@ -44,3 +54,14 @@ export default class ReduxScreen extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  setColorUI: uiOperations.setColorUI
+}
+
+const mapStateToProps = (state) => {
+  const color = selectors.selectUIColor(state)
+
+  return { color }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReduxScreen)
