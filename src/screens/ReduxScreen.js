@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { translate } from 'react-i18next'
 import {
   Body,
   Button,
@@ -15,7 +17,23 @@ import sample from 'lodash.sample'
 import { selectors } from '../state/rootReducer'
 import { uiOperations } from '../state/ui'
 
-class ReduxScreen extends Component {
+const mapDispatchToProps = {
+  setColorUI: uiOperations.setColorUI
+}
+
+const mapStateToProps = (state) => {
+  const color = selectors.selectUIColor(state)
+
+  return { color }
+}
+
+const enhance = compose(
+  translate(['redux'], { translateFuncName: 't', wait: true }),
+  connect(mapStateToProps, mapDispatchToProps)
+)
+
+@enhance
+export default class ReduxScreen extends Component {
   static navigationOptions = () => ({
     header: (
       <Header>
@@ -37,29 +55,25 @@ class ReduxScreen extends Component {
   }
 
   render() {
+    const { t, i18n, color } = this.props
+
     return (
       <Container>
-        <Content padder style={{ backgroundColor: this.props.color }}>
+        <Content padder style={{ backgroundColor: color }}>
           <Button full onPress={this.handlePressColor} style={{ marginBottom: 15 }}>
-            <Text>Set Random Color</Text>
+            <Text>{t('colorButtonTitle')}</Text>
           </Button>
-          <Button full onPress={this.handlePress}>
-            <Text>Back</Text>
+          <Button full onPress={() => { i18n.changeLanguage('de') }} style={{ marginBottom: 15 }}>
+            <Text>{t('deButtonTitle')}</Text>
+          </Button>
+          <Button full onPress={() => { i18n.changeLanguage('en') }} style={{ marginBottom: 15 }}>
+            <Text>{t('enButtonTitle')}</Text>
+          </Button>
+          <Button full onPress={this.handlePress} style={{ marginBottom: 15 }}>
+            <Text>{t('common:actions.back')}</Text>
           </Button>
         </Content>
       </Container>
     )
   }
 }
-
-const mapDispatchToProps = {
-  setColorUI: uiOperations.setColorUI
-}
-
-const mapStateToProps = (state) => {
-  const color = selectors.selectUIColor(state)
-
-  return { color }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ReduxScreen)
