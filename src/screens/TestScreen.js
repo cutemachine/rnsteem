@@ -17,7 +17,7 @@ export default class TestScreen extends Component {
       <Header>
         <Left />
         <Body>
-          <Title>Test Screen</Title>
+          <Title>Steem Starter</Title>
         </Body>
         <Right />
       </Header>
@@ -32,7 +32,6 @@ export default class TestScreen extends Component {
     return (
       <Container>
         <Content padder>
-          <Text>React Native Steem Starter</Text>
           <Button full onPress={this.handlePress}>
             <Text>Redux Example</Text>
           </Button>

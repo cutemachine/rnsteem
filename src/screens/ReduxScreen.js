@@ -21,7 +21,7 @@ class ReduxScreen extends Component {
       <Header>
         <Left />
         <Body>
-          <Title>Redux Screen</Title>
+          <Title>Redux</Title>
         </Body>
         <Right />
       </Header>
