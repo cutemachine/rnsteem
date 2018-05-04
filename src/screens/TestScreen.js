@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { compose } from 'redux'
+import { translate } from 'react-i18next'
 import {
   Body,
   Button,
@@ -11,6 +13,9 @@ import {
   Title,
 } from 'native-base'
 
+const enhance = compose(translate(['redux'], { translateFuncName: 't', wait: true }))
+
+@enhance
 export default class TestScreen extends Component {
   static navigationOptions = () => ({
     header: (
@@ -29,11 +34,12 @@ export default class TestScreen extends Component {
   }
 
   render() {
+    const { t } = this.props
     return (
       <Container>
         <Content padder>
           <Button full onPress={this.handlePress}>
-            <Text>Redux Example</Text>
+            <Text>{t('reduxButtonTitle')}</Text>
           </Button>
         </Content>
       </Container>

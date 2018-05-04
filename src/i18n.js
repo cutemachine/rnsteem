@@ -12,6 +12,7 @@ i18n
       en: {
         redux: {
           colorButtonTitle: 'Random Color',
+          reduxButtonTitle: 'Redux Example',
           deButtonTitle: 'German',
           enButtonTitle: 'English'
         },
@@ -24,6 +25,7 @@ i18n
       de: {
         redux: {
           colorButtonTitle: 'Zufallsfarbe',
+          reduxButtonTitle: 'Redux Beispiel',
           deButtonTitle: 'Deutsch',
           enButtonTitle: 'Englisch'
         },

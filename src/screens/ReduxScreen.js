@@ -63,12 +63,10 @@ export default class ReduxScreen extends Component {
           <Button full onPress={this.handlePressColor} style={{ marginBottom: 15 }}>
             <Text>{t('colorButtonTitle')}</Text>
           </Button>
-          <Button full onPress={() => { i18n.changeLanguage('de') }} style={{ marginBottom: 15 }}>
-            <Text>{t('deButtonTitle')}</Text>
-          </Button>
-          <Button full onPress={() => { i18n.changeLanguage('en') }} style={{ marginBottom: 15 }}>
-            <Text>{t('enButtonTitle')}</Text>
-          </Button>
+          { i18n.language !== 'de'
+            ? <Button full onPress={() => { i18n.changeLanguage('de') }} style={{ marginBottom: 15 }}><Text>{t('deButtonTitle')}</Text></Button>
+            : <Button full onPress={() => { i18n.changeLanguage('en') }} style={{ marginBottom: 15 }}><Text>{t('enButtonTitle')}</Text></Button>
+          }
           <Button full onPress={this.handlePress} style={{ marginBottom: 15 }}>
             <Text>{t('common:actions.back')}</Text>
           </Button>
