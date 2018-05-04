@@ -1,3 +1,14 @@
 {
-  "presets": ["react-native"]
+  "env": {
+    "development": {
+      "presets": ["react-native"],
+      "plugins": ["transform-decorators-legacy", "transform-es2015-modules-commonjs"],
+      "retainLines": true
+    },
+    "test": {
+      "presets": ["react-native"],
+      "plugins": ["transform-decorators-legacy", "transform-es2015-modules-commonjs"],
+      "retainLines": true
+    }
+  }
 }
