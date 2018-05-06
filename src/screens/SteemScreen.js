@@ -3,51 +3,49 @@ import { compose } from 'redux'
 import { translate } from 'react-i18next'
 import {
   Body,
-  Button,
   Container,
   Content,
   Header,
   Left,
   Right,
-  Text,
+  Form,
+  Item,
+  Label,
+  Input,
   Title,
 } from 'native-base'
 
 const enhance = compose(translate(['redux'], { translateFuncName: 't', wait: true }))
 
 @enhance
-export default class TestScreen extends Component {
+export default class SteemScreen extends Component {
   static navigationOptions = () => ({
     header: (
       <Header>
         <Left />
         <Body>
-          <Title>Steem Starter</Title>
+          <Title>Steem</Title>
         </Body>
         <Right />
       </Header>
     )
   })
 
-  handlePress = () => {
-    this.props.navigation.navigate('ReduxScreen')
-  }
-
-  handlePressSteem = () => {
-    this.props.navigation.navigate('SteemScreen')
-  }
-
   render() {
     const { t } = this.props
+
     return (
       <Container>
         <Content padder>
-          <Button full onPress={this.handlePressSteem} style={{ marginBottom: 15 }}>
-            <Text>{t('steemButtonTitle')}</Text>
-          </Button>
-          <Button full onPress={this.handlePress}>
-            <Text>{t('reduxButtonTitle')}</Text>
-          </Button>
+          <Form>
+            <Item floatingLabel>
+              <Label>Username</Label>
+              <Input
+                spellCheck={false}
+                value='huhu'
+              />
+            </Item>
+          </Form>
         </Content>
       </Container>
     )

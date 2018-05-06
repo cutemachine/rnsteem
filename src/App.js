@@ -8,10 +8,12 @@ import { translate } from 'react-i18next'
 import i18n from './i18n'
 import configureStore from './state/store'
 import TestScreen from './screens/TestScreen'
+import SteemScreen from './screens/SteemScreen'
 import ReduxScreen from './screens/ReduxScreen'
 
 const AppNavigator = StackNavigator({
   TestScreen: { screen: TestScreen },
+  SteemScreen: { screen: SteemScreen },
   ReduxScreen: { screen: ReduxScreen }
 }, { TestScreen, mode: 'card' })
 
