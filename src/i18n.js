@@ -18,6 +18,9 @@ i18n
           enButtonTitle: 'English'
         },
         common: {
+          labels: {
+            username: 'Username'
+          },
           actions: {
             back: 'Back'
           }
@@ -32,6 +35,9 @@ i18n
           enButtonTitle: 'Englisch'
         },
         common: {
+          labels: {
+            username: 'Benutzername'
+          },
           actions: {
             back: 'Zurück'
           }

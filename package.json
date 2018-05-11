@@ -1,16 +1,30 @@
 {
-  "name": "rnsteem",
-  "version": "0.0.1",
+  "name": "steemTestApp",
+  "version": "0.1.0",
   "private": true,
+  "devDependencies": {
+    "babel-jest": "22.4.3",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-react-native": "4.0.0",
+    "jest-expo": "~27.0.0",
+    "react-native-scripts": "1.14.0",
+    "react-test-renderer": "16.3.1"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "eslint": "eslint"
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "jest-expo"
   },
   "dependencies": {
-    "babel-eslint": "^8.2.3",
-    "eslint": "^4.19.1",
-    "i18next": "^11.2.3",
+    "expo": "^27.0.1",
+    "i18next": "^11.3.1",
     "i18next-react-native-language-detector": "^1.0.2",
     "lodash.forown": "^4.4.0",
     "lodash.head": "^4.0.1",
@@ -20,32 +34,15 @@
     "lodash.sample": "^4.2.1",
     "moment": "^2.22.1",
     "native-base": "^2.4.3",
-    "node-libs-react-native": "^1.0.2",
     "react": "16.3.1",
     "react-i18next": "^7.6.1",
-    "react-native": "0.55.3",
+    "react-native": "~0.55.2",
     "react-native-locale-detector": "^1.0.1",
     "react-navigation": "^1.5.11",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
-    "steem": "^0.7.1",
-    "vm-browserify": "^1.0.1"
-  },
-  "devDependencies": {
-    "babel-jest": "22.4.3",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "babel-preset-react-native": "4.0.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "jest": "22.4.3",
-    "react-test-renderer": "16.3.1"
-  },
-  "jest": {
-    "preset": "react-native"
+    "steem": "0.6.7"
   }
 }

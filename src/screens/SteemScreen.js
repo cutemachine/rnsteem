@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { translate } from 'react-i18next'
 import {
   Body,
+  Button,
   Container,
   Content,
   Header,
@@ -13,9 +15,25 @@ import {
   Label,
   Input,
   Title,
+  Text,
 } from 'native-base'
+import { selectors } from '../state/rootReducer'
+import { steemOperations } from '../state/steem'
 
-const enhance = compose(translate(['redux'], { translateFuncName: 't', wait: true }))
+const mapDispatchToProps = {
+  getFollowCount: steemOperations.getFollowCount
+}
+
+const mapStateToProps = (state) => {
+  const followCount = selectors.selectFollowCount(state)
+
+  return { followCount }
+}
+
+const enhance = compose(
+  translate(['redux'], { translateFuncName: 't', wait: true }),
+  connect(mapStateToProps, mapDispatchToProps)
+)
 
 @enhance
 export default class SteemScreen extends Component {
@@ -31,6 +49,14 @@ export default class SteemScreen extends Component {
     )
   })
 
+  componentDidMount() {
+    this.props.getFollowCount('cutemachine')
+  }
+
+  handlePress = () => {
+    this.props.navigation.goBack()
+  }
+
   render() {
     const { t } = this.props
 
@@ -39,13 +65,18 @@ export default class SteemScreen extends Component {
         <Content padder>
           <Form>
             <Item floatingLabel>
-              <Label>Username</Label>
+              <Label>{t('common:labels.username')}</Label>
               <Input
                 spellCheck={false}
                 value='huhu'
               />
             </Item>
           </Form>
+          <Text>{this.props.followCount.follower_count}</Text>
+          <Text>{this.props.followCount.following_count}</Text>
+          <Button full onPress={this.handlePress} style={{ marginBottom: 15 }}>
+            <Text>{t('common:actions.back')}</Text>
+          </Button>
         </Content>
       </Container>
     )
