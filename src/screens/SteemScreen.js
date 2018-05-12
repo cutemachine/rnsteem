@@ -49,8 +49,21 @@ export default class SteemScreen extends Component {
     )
   })
 
-  componentDidMount() {
-    this.props.getFollowCount('cutemachine')
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      username: ''
+    }
+  }
+
+  handleChangeUsername = (value) => {
+    this.setState({
+      username: value.toLowerCase()
+    })
+
+    // FIX: Don't do this in production as it makes too many requests.
+    this.props.getFollowCount(value)
   }
 
   handlePress = () => {
@@ -68,7 +81,8 @@ export default class SteemScreen extends Component {
               <Label>{t('common:labels.username')}</Label>
               <Input
                 spellCheck={false}
-                value='huhu'
+                value={this.state.username}
+                onChangeText={this.handleChangeUsername}
               />
             </Item>
           </Form>
