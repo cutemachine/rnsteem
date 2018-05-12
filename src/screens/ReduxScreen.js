@@ -8,6 +8,8 @@ import {
   Container,
   Content,
   Header,
+  Footer,
+  FooterTab,
   Left,
   Right,
   Text,
@@ -67,10 +69,14 @@ export default class ReduxScreen extends Component {
             ? <Button full onPress={() => { i18n.changeLanguage('de') }} style={{ marginBottom: 15 }}><Text>{t('deButtonTitle')}</Text></Button>
             : <Button full onPress={() => { i18n.changeLanguage('en') }} style={{ marginBottom: 15 }}><Text>{t('enButtonTitle')}</Text></Button>
           }
-          <Button full onPress={this.handlePress} style={{ marginBottom: 15 }}>
-            <Text>{t('common:actions.back')}</Text>
-          </Button>
         </Content>
+        <Footer>
+          <FooterTab>
+            <Button full onPress={this.handlePress}>
+              <Text>{t('common:actions.back')}</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
       </Container>
     )
   }

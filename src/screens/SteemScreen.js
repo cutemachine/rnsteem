@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { translate } from 'react-i18next'
+import styled from "styled-components"
 import {
   Body,
   Button,
   Container,
   Content,
   Header,
+  Footer,
+  FooterTab,
   Left,
   Right,
   Form,
@@ -19,6 +22,21 @@ import {
 } from 'native-base'
 import { selectors } from '../state/rootReducer'
 import { steemOperations } from '../state/steem'
+
+const Level = styled.View`
+  padding-top: 10;
+  padding-bottom: 10;
+`
+
+const LevelTitle = styled.Text`
+  text-align: center;
+  font-size: 12;
+`
+
+const LevelItem = styled.Text`
+  text-align: center;
+  font-size: 48;
+`
 
 const mapDispatchToProps = {
   getFollowCount: steemOperations.getFollowCount
@@ -76,7 +94,7 @@ export default class SteemScreen extends Component {
     return (
       <Container>
         <Content padder>
-          <Form>
+          <Form style={{marginBottom: 100}}>
             <Item floatingLabel>
               <Label>{t('common:labels.username')}</Label>
               <Input
@@ -86,12 +104,26 @@ export default class SteemScreen extends Component {
               />
             </Item>
           </Form>
-          <Text>{this.props.followCount.follower_count}</Text>
-          <Text>{this.props.followCount.following_count}</Text>
-          <Button full onPress={this.handlePress} style={{ marginBottom: 15 }}>
-            <Text>{t('common:actions.back')}</Text>
-          </Button>
+          <Level>
+            <LevelTitle>FOLLOWERS</LevelTitle>
+            <LevelItem>
+              {this.props.followCount.follower_count}
+            </LevelItem>
+          </Level>
+          <Level>
+            <LevelTitle>FOLLOWING</LevelTitle>
+            <LevelItem>
+              {this.props.followCount.following_count}
+            </LevelItem>
+          </Level>
         </Content>
+        <Footer>
+          <FooterTab>
+            <Button full onPress={this.handlePress}>
+              <Text>{t('common:actions.back')}</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
       </Container>
     )
   }
