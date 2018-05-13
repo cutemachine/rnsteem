@@ -1,6 +1,6 @@
 {
-  "name": "steemTestApp",
-  "version": "0.1.0",
+  "name": "rnsteem",
+  "version": "0.3.0",
   "private": true,
   "devDependencies": {
     "babel-jest": "22.4.3",
@@ -26,12 +26,6 @@
     "expo": "^27.0.1",
     "i18next": "^11.3.1",
     "i18next-react-native-language-detector": "^1.0.2",
-    "lodash.debounce": "^4.0.8",
-    "lodash.forown": "^4.4.0",
-    "lodash.head": "^4.0.1",
-    "lodash.isempty": "^4.4.0",
-    "lodash.last": "^3.0.0",
-    "lodash.pull": "^4.1.0",
     "lodash.sample": "^4.2.1",
     "moment": "^2.22.1",
     "native-base": "^2.4.3",
