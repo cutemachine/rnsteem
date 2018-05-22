@@ -1,4 +1,4 @@
-# RNSteem
+# RNSteem—A React Native Starter App For The Steem Blockchain
 
 A starter project to build React Native based mobile apps for the Steem blockchain.
 
@@ -8,6 +8,7 @@ A starter project to build React Native based mobile apps for the Steem blockcha
 - [Babel—Next generation JavaScript](https://babeljs.io)
 - [React Native—Build native mobile apps using JavaScript and React](https://facebook.github.io/react-native/)
 - [CRNA—Create a React Native app on any OS with no build config](https://github.com/react-community/create-react-native-app)
+- [Steem.js—Steem.js the official JavaScript library for the Steem blockchain](https://github.com/steemit/steem-js)
 - [NativeBase—Essential cross-platform UI components for React Native](https://nativebase.io/)
 - [Styled Components—Visual primitives for the component age](https://www.styled-components.com/)
 - [Redux—Predictable state container for JavaScript apps](https://redux.js.org/)
