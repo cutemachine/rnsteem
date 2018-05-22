@@ -1,5 +1,7 @@
 import actions from './actions'
-import steem from 'steem'
+import { Client } from 'dsteem'
+
+const client = new Client('https://api.steemit.com')
 
 const {
   followCountSet,
@@ -8,11 +10,8 @@ const {
 // Thunks
 const getFollowCount = (name) => async (dispatch, getState) => {
   try {
-    // Use this server, as it allows to grab the whole account history from blockchain
-    // TODO: allow configuration for Steem API server in UI
-    steem.api.setOptions({ url: 'wss://rpc.buildteam.io' })
     let [followCount] = await Promise.all([
-      steem.api.getFollowCountAsync(name),
+      client.call('follow_api', 'get_follow_count', [name])
     ])
 
     if (!followCount) { throw new Error('Sorry, could not get follow count for user.') }
